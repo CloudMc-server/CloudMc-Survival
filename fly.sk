@@ -1,0 +1,51 @@
+#
+
+command gm1:
+	description: Gamemode 1
+	permission: skript.gmchange
+	executable by: players
+	trigger:
+		message "&2SERWER &8» &7Zrobione! Masz teraz gamemode creative."
+		set gamemode of player to Creative
+
+command gm0:
+	description: Gamemode 0
+	permission: skript.gmchange
+	executable by: players
+	trigger:
+		message "&2SERWER &8» &7Zrobione! Masz teraz gamemode survival."
+		set gamemode of player to Survival
+
+
+command killall:
+    description: Mordujesz wszystkich graczy...
+    permission: skript.killall
+    executable by: players
+    trigger:
+        make console execute command "kill @e[type= minecraft:player]"
+        send "&2SERWER &8» &7Zrobione! Czemu zamordowałeś/aś cały serwer?"
+
+
+
+
+
+command fly:
+    description: Mordujesz wszystkich graczy...
+    permission: skript.killall
+    executable by: players
+    trigger:
+        if player can fly:
+            set player's flight mode to false
+            message "&2SERWER &8» &7Zrobione! Teraz nie możesz latać."
+        if player can't fly:
+            set player's flight mode to true
+            message "&2SERWER &8» &7Zrobione! Możesz teraz latać."
+
+
+
+
+on join:
+	broadcast "&2SERWER &8» &7%player% właśnie dołączył/a na serwer! Miłej gry!"
+
+on quit:
+	broadcast "&2SERWER &8» &7%player% właśnie wyszedł/a z serwera... Miłego dnia!"
